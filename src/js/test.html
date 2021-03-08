@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=d, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <article>
+            <h1>
+                1
+                <h2>1-1</h2>
+            </h1>
+            <h1>
+                2
+                <h2>2-1</h2>
+            </h1>
+        </article>
+
+        <article>
+            <h1>
+                222
+                <h2>
+                    333
+                </h2>
+            </h1>
+            <h1>
+                555
+                <h2>888</h2>
+            </h1>
+        </article>
+        <script>
+            function article_to_json() {
+                let res = [];
+                for (let i = 0; i < dom.children.length; i++) {
+                    const child = dom.children[i];
+                    const type = child.tagName;
+                    const value = child.innerHTML.trim();
+                    res.push({ type, value });
+                }
+                return res
+            }
+            let res = []
+            let doms = document.getElementsByTagName('article');
+            for (dom of doms) {
+                res.push(...article_to_json(dom))
+            }
+            console.log(res)
+        </script>
+    </body>
+</html>

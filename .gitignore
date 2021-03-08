@@ -32,3 +32,5 @@ node_modules/
 .tmp
 GumGumScreenshots_*.crx
 updates.xml
+
+.history/

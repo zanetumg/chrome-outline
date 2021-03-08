@@ -1,5 +1,5 @@
 // Find the current active tab
-const getTab = () =>
+function getTab() {
     new Promise(resolve => {
         chrome.tabs.query(
             {
@@ -9,9 +9,14 @@ const getTab = () =>
             tabs => resolve(tabs[0])
         )
     })
+}
 
-getTab().then(tab => {
-	chrome.tabs.sendMessage(tab.id, {command: "get/articles"}, function(response) {
-		alert(response.payload)
-	})
-})
+function main() {
+    getTab().then(tab => {
+        chrome.tabs.sendMessage(tab.id, {command: "get/articles"}, function(response) {
+            alert(response.res)
+        })
+    })
+}
+
+main()
