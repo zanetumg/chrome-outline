@@ -1,12 +1,12 @@
 // accept an article dom and
 // convert to json
-function article_to_json() {
+function article_to_json(dom) {
     let res = [];
     for (let i = 0; i < dom.children.length; i++) {
         const child = dom.children[i];
         const type = child.tagName;
 
-		if(type !== "h1" || type !== "h2")
+		if(type !== "h1" && type !== "h2")
 			continue;
 
         const value = child.innerHTML.trim();
